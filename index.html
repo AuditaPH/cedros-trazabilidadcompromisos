@@ -121,7 +121,6 @@ input, textarea, select { -webkit-user-select:text; -moz-user-select:text; user-
 <div class="container">
   <div class="kpi-grid" id="kpiGrid"></div>
   <div class="charts-grid">
-    <div class="chart-card"><h3>&#128181; Valor por Tipo de Contrato</h3><canvas id="chartByType"></canvas></div>
     <div class="charts-row">
       <div class="chart-card"><h3>&#128260; Estado de Contratos</h3><canvas id="chartByStatus"></canvas></div>
       <div class="chart-card"><h3>&#128737;&#65039; Estado de Garant&#237;as</h3><canvas id="chartGuarantees"></canvas></div>
@@ -196,7 +195,7 @@ const CLIENT = {
       "valorTotal": 6500000,
       "valorMensual": 6500000,
       "otrasObservaciones": "No se exigieron pólizas de respaldo para este servicio. La administradora presentó carta de renuncia el 18 de mayo de 2026, con efectividad hasta el 15 de junio de 2026, es decir, de forma anticipada frente al plazo contractual pactado hasta el 23 de febrero de 2027.",
-      "estadoNota": "Renuncia presentada 18/05/2026, efectiva 15/06/2026; vigencia formal pactada hasta 23/02/2027.",
+      "estadoNota": "Contrato no suministrado.",
       "alertaCritica": true
     },
     {
@@ -284,32 +283,6 @@ const CLIENT = {
       "alertaCritica": true
     },
     {
-      "contratista": "LUZ STELLA ARDILA ARIZA",
-      "tipo": "Prestación de Servicios Profesionales — Revisoría Fiscal (Contrato No. 001)",
-      "firmas": "Completas",
-      "objeto": "Ejecución de las labores propias de la Revisoría Fiscal de la Propiedad Horizontal conforme a la Ley 675 de 2001, la Ley 43 de 1990 y el Código de Comercio, según elección realizada en asamblea ordinaria del 6 de abril de 2024, confirmada en asamblea extraordinaria del 5 de octubre de 2024.",
-      "fechaInicio": "2024-04-06",
-      "fechaFin": "Hasta la asamblea ordinaria de la vigencia 2025",
-      "estado": "Finalizado",
-      "valorTotal": 11700000,
-      "valorMensual": 1300000,
-      "alertaCritica": false
-    },
-    {
-      "contratista": "LUZ STELLA ARDILA ARIZA",
-      "tipo": "Prestación de Servicios Profesionales — Revisoría Fiscal (Contrato No. 002)",
-      "firmas": "Completas",
-      "objeto": "Ejecución de las labores propias de la Revisoría Fiscal de la Propiedad Horizontal, según elección realizada en asamblea ordinaria del 22 de marzo de 2025, para el periodo comprendido hasta la asamblea ordinaria de la vigencia 2026.",
-      "fechaInicio": "2025-03-22",
-      "fechaFin": "Hasta la asamblea ordinaria de la vigencia 2026 (12 de abril de 2026)",
-      "estado": "Finalizado",
-      "valorTotal": 18000000,
-      "valorMensual": 1500000,
-      "contratoPadre": true,
-      "otrasObservaciones": "El plazo pactado en este contrato se extiende hasta la celebración de la asamblea ordinaria de la vigencia 2026 (realizada el 12 de abril de 2026). La continuidad de la Revisoría Fiscal para el periodo posterior está amparada por el contrato suscrito con David Augusto Villarraga (ver fila siguiente).",
-      "alertaCritica": false
-    },
-    {
       "contratista": "DAVID AUGUSTO VILLARRAGA",
       "tipo": "Prestación de Servicios Profesionales — Revisoría Fiscal",
       "firmas": "No",
@@ -369,10 +342,25 @@ const CLIENT = {
       "valorTotal": 959048640,
       "valorMensual": 79920720,
       "garantias": {
+        "Cumplimiento": {
+          "condicion": "10% del valor del contrato, vigencia del contrato + 3 meses",
+          "recibida": "No",
+          "observaciones": "No se identificó documento específico en el expediente revisado."
+        },
+        "Calidad del Servicio": {
+          "condicion": "10% del valor del contrato, vigencia del contrato + 3 meses",
+          "recibida": "No",
+          "observaciones": "No se identificó documento específico en el expediente revisado."
+        },
+        "Salarios y Prestaciones Sociales": {
+          "condicion": "10% del valor del contrato, vigencia del contrato + 3 años",
+          "recibida": "No",
+          "observaciones": "No se identificó documento específico en el expediente revisado."
+        },
         "Responsabilidad Civil Extracontractual": {
-          "condicion": "Póliza vigente conforme al art. 11 del Decreto 356 de 1994; adicional póliza grupo vida",
-          "recibida": "Sí",
-          "observaciones": "Exigida contractualmente; no se verificó documento físico de la póliza en el expediente compartido."
+          "condicion": "Mantener vigente conforme a las exigencias de la Superintendencia de Vigilancia y Seguridad Privada",
+          "recibida": "No",
+          "observaciones": "Exigida contractualmente conforme al art. 11 del Decreto 356 de 1994; no se verificó documento físico de la póliza en el expediente compartido."
         }
       },
       "otrasObservaciones": "El contrato establece expresamente que no se prorroga de forma automática, requiriendo la suscripción de un nuevo contrato. No se localizó en el repositorio compartido evidencia de renovación posterior al 31 de agosto de 2026.",
@@ -392,7 +380,7 @@ const CLIENT = {
       "garantias": {
         "Responsabilidad Civil Extracontractual": {
           "condicion": "Exigida contractualmente para amparar daños ocasionados por el personal asignado",
-          "recibida": "Sí",
+          "recibida": "No",
           "observaciones": "Documento vinculante según cláusula décima quinta; no se verificó copia física en el expediente compartido."
         }
       },
@@ -422,7 +410,8 @@ const CLIENT = {
       "fechaFin": "2026-09-18",
       "estado": "Por Vencer",
       "valorTotal": 1000000,
-      "otrasObservaciones": "Contrato próximo a vencer sin renovación automática; requiere gestión oportuna de la administración para su continuidad.",
+      "valorMensual": 250000,
+      "otrasObservaciones": "Contrato próximo a vencer sin renovación automática; requiere gestión oportuna de la administración para su continuidad. El pago pactado es trimestral por $250.000 antes de IVA; el valor total del contrato de $1.000.000 se entiende antes de IVA.",
       "alertaCritica": false
     },
     {
@@ -471,9 +460,44 @@ const CLIENT = {
       "valorTotal": 0,
       "valorTexto": "Mantiene el valor mensual del contrato inicial ($6.872.403); el otrosí no modifica esta cláusula.",
       "contratoPadre": true,
-      "otrasObservaciones": "No se localizó en el repositorio compartido evidencia de una nueva prórroga o de un nuevo contratista para la administración del Club House con posterioridad al 15 de julio de 2026.",
-      "estadoNota": "Sin evidencia de continuidad del servicio posterior al 15/07/2026.",
-      "alertaCritica": true
+      "otrasObservaciones": "Continuidad del servicio confirmada mediante nuevo contrato vigente suscrito con Mazoc Sports SAS a partir del 15 de julio de 2026 (ver fila siguiente).",
+      "estadoNota": "Continuidad confirmada mediante nuevo contrato vigente desde 15/07/2026.",
+      "alertaCritica": false
+    },
+    {
+      "contratista": "MAZOC SPORTS SAS",
+      "tipo": "Administración Club House (Gimnasio y Piscina)",
+      "firmas": "Completas",
+      "objeto": "Administración y mantenimiento integral del área común denominada Club House, incluyendo instructor certificado y mantenimiento de máquinas de piscina.",
+      "fechaInicio": "2026-07-15",
+      "fechaFin": "2027-07-15",
+      "estado": "Vigente",
+      "valorTotal": 90396000,
+      "valorMensual": 7533000,
+      "garantias": {
+        "Cumplimiento": {
+          "condicion": "20% del valor del contrato, vigencia del contrato + 4 meses (15/07/2026 - 14/11/2027)",
+          "recibida": "Sí",
+          "observaciones": ""
+        },
+        "Calidad del Servicio": {
+          "condicion": "20% del valor del contrato, vigencia del contrato (15/07/2026 - 14/07/2027)",
+          "recibida": "Sí",
+          "observaciones": ""
+        },
+        "Salarios y Prestaciones Sociales": {
+          "condicion": "20% del valor del contrato, vigencia del contrato + 3 años (15/07/2026 - 14/07/2030)",
+          "recibida": "Sí",
+          "observaciones": ""
+        },
+        "Responsabilidad Civil Extracontractual": {
+          "condicion": "40% del valor del contrato, vigencia del contrato (15/07/2026 - 14/07/2027)",
+          "recibida": "Sí",
+          "observaciones": ""
+        }
+      },
+      "contratoPadre": true,
+      "alertaCritica": false
     },
     {
       "contratista": "LEZING INGENIERÍA INTEGRAL E.U.",
@@ -536,21 +560,22 @@ const CLIENT = {
       "estado": "Finalizado",
       "valorTotal": 20000000,
       "valorTexto": "Anticipo 50% del valor de la orden de trabajo para compra de materiales y movilización; saldo 50% una vez finalizadas las actividades y entregado el informe técnico fotográfico recibido a satisfacción por cada propietario.",
-      "otrasObservaciones": "Datos según el Excel de diligenciamiento entregado por la administración. Se revisaron en Drive dos documentos de Lezing enlazados por la administración, pero ambos corresponden al contrato de obra No. 001-2026 por $2.997.000.000 (fila anterior de esta tabla), no a este contrato menor de reparación de emergencia; el documento soporte específico de este contrato no fue ubicado en el repositorio compartido.",
+      "otrasObservaciones": "Datos según el Excel de diligenciamiento entregado por la administración.",
       "estadoNota": "Contrato soporte no ubicado en Drive; cifras tomadas del Excel.",
       "alertaCritica": true
     },
     {
       "contratista": "ZUMA COMUNICACIONES DE COLOMBIA",
       "tipo": "Servicio Público — Internet",
-      "firmas": "No",
+      "firmas": "Completas",
       "objeto": "Servicio de Internet para el conjunto.",
-      "fechaInicio": "",
-      "fechaFin": "",
-      "estado": "Vencido sin Otrosí",
-      "valorTotal": 0,
-      "otrasObservaciones": "Contrato no suministrado; identificado únicamente en el Excel de diligenciamiento entregado por la administración, sin fechas ni valor. Estado asignado de forma prudencial ante la falta de información.",
-      "estadoNota": "Contrato no suministrado; estado asignado de forma prudencial.",
+      "fechaInicio": "2024-08-29",
+      "fechaFin": "2026-08-28",
+      "estado": "En Proceso",
+      "valorTotal": 2568000,
+      "valorMensual": 107000,
+      "otrasObservaciones": "Contrato pactado inicialmente por un plazo de 12 meses; a la fecha de corte de este informe se encuentra en ejecución tácita, sin que se haya formalizado un otrosí de renovación.",
+      "estadoNota": "En ejecución tácita, sin otrosí de renovación formalizado.",
       "alertaCritica": true
     },
     {
@@ -586,30 +611,26 @@ const CLIENT = {
     {
       "contratista": "MAPFRE SEGUROS GENERALES DE COLOMBIA S.A.",
       "tipo": "Póliza de Seguros del Conjunto",
-      "firmas": "No",
-      "objeto": "Póliza de seguros generales de la copropiedad (incendio, terremoto, todo riesgo, según corresponda). No fue posible determinar el alcance específico contratado para esta vigencia.",
-      "fechaInicio": "",
-      "fechaFin": "",
-      "estado": "Vencido sin Otrosí",
-      "valorTotal": 0,
-      "valorTexto": "No disponible — sin documentación específica localizada.",
-      "otrasObservaciones": "En la carpeta 'MAPFRE ASEGURADORA' del repositorio compartido únicamente se encontró un acceso directo (shortcut) roto y un condicionado general genérico de la aseguradora, sin la carátula ni el certificado de la póliza vigente específica del conjunto. El estado 'Vencido sin Otrosí' se asigna de manera prudencial ante la imposibilidad de verificar la vigencia real de la cobertura; se recomienda solicitar formalmente a la administración la carátula de la póliza vigente y el comprobante de pago de la prima.",
-      "estadoNota": "Estado asignado de forma prudencial; pendiente de verificación documental.",
-      "alertaCritica": true
+      "firmas": "Completas",
+      "objeto": "Póliza de seguros generales de la copropiedad (incendio, terremoto, todo riesgo, según corresponda).",
+      "fechaInicio": "2026-05-09",
+      "fechaFin": "2027-05-09",
+      "estado": "Vigente",
+      "valorTotal": 102295432,
+      "valorMensualTexto": "-",
+      "alertaCritica": false
     },
     {
       "contratista": "SBS (aseguradora/corredor no identificado con certeza)",
-      "tipo": "Póliza 2025-2026",
-      "firmas": "No",
-      "objeto": "Póliza identificada únicamente por el título del archivo ('POLIZA 2025-2026'); no fue posible acceder a su contenido.",
-      "fechaInicio": "",
-      "fechaFin": "",
-      "estado": "Vencido sin Otrosí",
-      "valorTotal": 0,
-      "valorTexto": "No disponible — documento protegido con contraseña.",
-      "otrasObservaciones": "El archivo se encuentra protegido con contraseña y no fue posible abrirlo por los medios de consulta disponibles. El estado 'Vencido sin Otrosí' se asigna de manera prudencial ante la imposibilidad de verificar su contenido y vigencia real; se recomienda solicitar a la administración copia legible o la contraseña del documento.",
-      "estadoNota": "Estado asignado de forma prudencial; documento inaccesible por protección con contraseña.",
-      "alertaCritica": true
+      "tipo": "Póliza de Áreas Comunes 2025-2026",
+      "firmas": "Completas",
+      "objeto": "Póliza de Áreas comunes 2025 2026",
+      "fechaInicio": "2025-05-09",
+      "fechaFin": "2026-05-09",
+      "estado": "Finalizado",
+      "valorTotal": 122795212,
+      "valorMensualTexto": "-",
+      "alertaCritica": false
     }
   ],
   "compromisos": {
@@ -635,7 +656,7 @@ const CLIENT = {
 
 let filteredContratos = [...CLIENT.contratos];
 let showFinalizados = false;
-let chartByType, chartByStatus, chartGuarantees;
+let chartByStatus, chartGuarantees;
 
 document.addEventListener('DOMContentLoaded', function() {
   initHeader();
@@ -737,19 +758,6 @@ function runEntryAnimations() {
 
 function createCharts() {
   const contratos = CLIENT.contratos;
-  const typeData = {};
-  contratos.forEach(function(c) {
-    if (!typeData[c.tipo]) typeData[c.tipo] = 0;
-    typeData[c.tipo] += (c.valorTotal || 0);
-  });
-  if (chartByType) chartByType.destroy();
-  chartByType = new Chart(document.getElementById('chartByType'), {
-    type: 'bar',
-    data: { labels: Object.keys(typeData), datasets: [{label:'Valor Total', data:Object.values(typeData),
-      backgroundColor:['#667eea','#764ba2','#f093fb','#4facfe','#fa709a','#43e97b','#f6d365','#fda085','#a18cd1','#fbc2eb','#84fab0','#8fd3f4']}] },
-    options: { responsive:true, maintainAspectRatio:true, plugins:{legend:{display:false}},
-      scales:{y:{ticks:{callback:function(v){return '$'+(v/1000000).toFixed(1)+'M';}}}} }
-  });
 
   const statusData = {};
   contratos.forEach(function(c) {
@@ -857,6 +865,7 @@ function showDetails(idEnc) {
   const modal = document.getElementById('detalleModal');
   document.getElementById('modalContratista').textContent = contrato.contratista;
   const statusClass = getStatusClass(contrato.estado);
+  const valorMensualDisplay = contrato.valorMensualTexto ? contrato.valorMensualTexto : (contrato.valorMensual>0?formatCurrency(contrato.valorMensual):'Ver observaciones');
   document.getElementById('modalInfoGeneral').innerHTML =
     '<div class="info-item-modal"><label>Tipo de Contrato</label><value>'+contrato.tipo+'</value></div>' +
     '<div class="info-item-modal"><label>Estado de Firmas</label><value>'+contrato.firmas+'</value></div>' +
@@ -864,7 +873,7 @@ function showDetails(idEnc) {
     '<div class="info-item-modal"><label>Fecha de Finalizaci\u00f3n</label><value>'+(formatDate(contrato.fechaFin)||'Por definir')+'</value></div>' +
     '<div class="info-item-modal"><label>Estado</label><value><span class="status-badge '+statusClass+'">'+contrato.estado+'</span></value></div>' +
     '<div class="info-item-modal"><label>Valor Total</label><value>'+displayValue(contrato)+'</value></div>' +
-    '<div class="info-item-modal"><label>Valor Mensual</label><value>'+(contrato.valorMensual>0?formatCurrency(contrato.valorMensual):'Ver observaciones')+'</value></div>' +
+    '<div class="info-item-modal"><label>Valor Mensual</label><value>'+valorMensualDisplay+'</value></div>' +
     '<div class="info-item-modal" style="grid-column:1/-1"><label>Objeto Contractual</label><value>'+contrato.objeto+'</value></div>';
   const gs = document.getElementById('modalGarantiasSection');
   const gl = document.getElementById('modalGarantias');
