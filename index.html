@@ -546,8 +546,8 @@ const CLIENT = {
       "fechaInicio": "2026-02-02",
       "fechaFin": "2026-02-24",
       "estado": "Finalizado",
-      "valorTotal": 0,
-      "otrasObservaciones": "Datos según el Excel de diligenciamiento entregado por la administración; sin valor reportado.",
+      "valorTotal": 9700000,
+      "otrasObservaciones": "Anticipo del 60% y 40% al terminar.",
       "alertaCritica": false
     },
     {
@@ -571,7 +571,7 @@ const CLIENT = {
       "objeto": "Servicio de Internet para el conjunto.",
       "fechaInicio": "2024-08-29",
       "fechaFin": "2026-08-28",
-      "estado": "En Proceso",
+      "estado": "Vencido sin Otrosí",
       "valorTotal": 2568000,
       "valorMensual": 107000,
       "otrasObservaciones": "Contrato pactado inicialmente por un plazo de 12 meses; a la fecha de corte de este informe se encuentra en ejecución tácita, sin que se haya formalizado un otrosí de renovación.",
@@ -810,7 +810,8 @@ function populateTable() {
     const gCount = Object.keys(contrato.garantias||{}).length;
     const gText = gCount>0 ? gCount+' registradas' : 'N/A';
     const gClass = gCount>0 ? 'garantia-completa' : 'garantia-na';
-    const idSafe = encodeURIComponent(contrato.contratista + '||' + (contrato.objeto||'').slice(0,20));
+    const realIndex = CLIENT.contratos.indexOf(contrato);
+    const idSafe = String(realIndex);
     const alerta = contrato.alertaCritica ? '<span class="alerta-critica-badge">&#9888; Pendiente</span>' : '';
     const nombreCell = (contrato.contratoPadre ? '&#8618; ' : '') + contrato.contratista + alerta;
     const tip = contrato.estadoNota ? '<span class="info-tip">i<span class="tip-text">'+contrato.estadoNota+'</span></span>' : '';
@@ -857,10 +858,7 @@ function filterTable() {
 }
 
 function showDetails(idEnc) {
-  const key = decodeURIComponent(idEnc);
-  const contrato = CLIENT.contratos.find(function(c) {
-    return (c.contratista+'||'+(c.objeto||'').slice(0,20)) === key;
-  });
+  const contrato = CLIENT.contratos[parseInt(idEnc, 10)];
   if (!contrato) return;
   const modal = document.getElementById('detalleModal');
   document.getElementById('modalContratista').textContent = contrato.contratista;
