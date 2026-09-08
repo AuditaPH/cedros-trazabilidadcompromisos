@@ -560,7 +560,33 @@ const CLIENT = {
       "estado": "Finalizado",
       "valorTotal": 20000000,
       "valorTexto": "Anticipo 50% del valor de la orden de trabajo para compra de materiales y movilización; saldo 50% una vez finalizadas las actividades y entregado el informe técnico fotográfico recibido a satisfacción por cada propietario.",
-      "otrasObservaciones": "Datos según el Excel de diligenciamiento entregado por la administración.",
+      "garantias": {
+        "Cumplimiento": {
+          "condicion": "20% del valor del contrato, vigencia del contrato + 1 mes (15/05/2026 - 02/07/2026)",
+          "recibida": "Sí",
+          "observaciones": ""
+        },
+        "Buen Manejo del Anticipo": {
+          "condicion": "100% del valor del anticipo, vigencia del anticipo (15/05/2026 - 02/07/2026)",
+          "recibida": "Sí",
+          "observaciones": ""
+        },
+        "Estabilidad y Calidad de la Obra": {
+          "condicion": "30% del valor del contrato, vigencia del contrato + 1 año (02/06/2026 - 02/06/2027)",
+          "recibida": "Sí",
+          "observaciones": ""
+        },
+        "Responsabilidad Civil Extracontractual": {
+          "condicion": "20% del valor total del contrato, vigencia del contrato + 1 mes (15/05/2026 - 02/07/2026)",
+          "recibida": "Sí",
+          "observaciones": ""
+        },
+        "Salarios y Prestaciones Sociales": {
+          "condicion": "10% del valor del contrato, vigencia del contrato + 1 año (15/05/2026 - 02/06/2026)",
+          "recibida": "Sí",
+          "observaciones": ""
+        }
+      },
       "estadoNota": "Contrato soporte no ubicado en Drive; cifras tomadas del Excel.",
       "alertaCritica": true
     },
@@ -727,7 +753,7 @@ function buildKpis() {
   const contratos = CLIENT.contratos;
   const totalContratos = contratos.length;
   const valorTotal = contratos.reduce(function(sum, c) { return sum + (c.valorTotal || 0); }, 0);
-  const vigentes = contratos.filter(function(c) { return c.estado === 'Vigente' || c.estado === 'Por Vencer'; }).length;
+  const vigentes = contratos.filter(function(c) { return c.estado === 'Vigente'; }).length;
   const vencidos = contratos.filter(function(c) { return c.estado === 'Vencido sin Otros\u00ed'; }).length;
   const comp = CLIENT.compromisos || {realizados:0, total:0};
 
